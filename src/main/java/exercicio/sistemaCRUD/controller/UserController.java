@@ -34,4 +34,14 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<User>  update (@PathVariable Long id, @RequestBody User user){
+        if(!userService.findById(id).isPresent()){
+            return ResponseEntity.notFound().build();
+        }
+
+        user.setId(id);
+        return ResponseEntity.ok(userService.save(user));
+    }
+
 }

@@ -19,4 +19,10 @@ public class User {
     private String nome;
     private String email;
     private String senha;
+
+    public void setId(long id) {
+        this.id = id;
+    }
 }
+
+
